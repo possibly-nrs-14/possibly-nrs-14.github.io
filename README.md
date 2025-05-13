@@ -1,3 +1,4 @@
-![image](https://github.com/user-attachments/assets/77a0951f-0896-461d-94c6-51cc14570236)
+# About Me
+Hi! I'm a 3rd year undergraduate student pursuing a dual degree in computer science and computational linguistics at IIIT-Hyderabad. I'm also an undergraduate researcher in the Music Cognition Group (https://mcgiiit.com/). 
 
-Hi! I'm a 4th year undergraduate student pursuing a dual degree in computer science and computational linguistics at IIIT-Hyderabad. 
+I 
