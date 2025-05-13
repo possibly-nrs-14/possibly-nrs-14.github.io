@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikhil Raj Sriram — Resume</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #ffffff;
+      --accent: #00ffe7;
+      --dark: #0a0a0a;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary);
+    }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Animated background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d,#2193b0,#6dd5ed);
+      background-size: 500% 500%;
+      animation: gradientBG 20s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navigation */
+    header {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.4);
+      z-index: 999;
+    }
+    nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .8rem 1rem;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    /* Hero */
+    .hero {
+      max-width: 1080px;
+      margin: 4rem auto 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+    }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 20px rgba(0,0,0,.4);
+    }
+    .hero-text {
+      flex: 1 1 320px;
+    }
+    .hero-text h1 { font-size: 2.2rem; line-height: 1.2; }
+    .hero-text h1 span { color: var(--accent); }
+    .tagline { font-size: 1.1rem; opacity: .85; margin-top: .5rem; }
+    /* Sections */
+    section { padding: 4rem 1rem; max-width: 1080px; margin: 0 auto; }
+    section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: .75rem; }
+    #about p { max-width: 800px; opacity: .9; line-height: 1.7; }
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 1.4rem 1rem 1.6rem;
+      text-align: center;
+      backdrop-filter: blur(3px);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.35);
+    }
+    .skill-card h3 { margin-bottom: .35rem; font-size: 1.25rem; }
+    .skill-card p { font-size: .9rem; opacity: .9; }
+    /* Projects */
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 1.2rem 1rem 1.6rem;
+      backdrop-filter: blur(3px);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.35);
+    }
+    .project-card h3 { margin-bottom: .6rem; font-size: 1.25rem; }
+    .project-card p { font-size: .95rem; opacity: .9; }
+    .project-card a {
+      display: inline-block;
+      margin-top: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      opacity: .8;
+    }
+    /* Mobile nav toggle */
+    .burger { display: none; cursor: pointer; }
+    .burger div {
+      width: 25px; height: 3px; margin: 5px; background: var(--primary); transition: all .3s ease; }
+    @media (max-width: 768px) {
+      .nav-links { position: absolute; right: 0; top: 60px; background: rgba(0,0,0,.8); flex-direction: column; width: 100%; transform: translateY(-200%); transition: transform .4s ease; }
+      .nav-links.open { transform: translateY(0); }
+      .burger { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <nav>
+      <div class="logo">Nikhil R. Sriram</div>
+      <ul class="nav-links" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+      <div class="burger" id="burger">
+        <div></div><div></div><div></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="nikhil.65cd97367a23960e5ff2.png" alt="Profile Photo" class="profile-photo" />
+    <div class="hero-text">
+      <h1>Hi! I'm <span>Nikhil</span> — a CS student passionate about ML, NLP & Music.</h1>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a 3rd Year student pursuing a dual degree in Computer Science and Computational Linguistics at IIIT-Hyderabad. Additionally,
+        I'm also an undergraduate researcher in the Music Cognition Group <a href="https://mcgiiit.com/" target="_blank" rel="noopener">(Link)</a>.
+        My dream is to create amazing experiences for people using my background in computer science, as well as my passion for music.
+    </p>
+  </section>
+  <section id="skills">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Machine Learning & DL</h3>
+        <p>PyTorch, transfer learning, Transformers, contrastive & ensemble methods.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Natural Language Processing</h3>
+        <p>Language modelling, sentiment & topic classification, embedding analysis, Applying NLP concepts to other fields (such as music)</p>
+      </div>
+      <div class="skill-card">
+        <h3>C & Systems Programming</h3>
+        <p>UNIX shell, multithreaded C, POSIX APIs.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data Engineering</h3>
+        <p>Pandas, NumPy, CSV pipelines, data cleaning, feature extraction, visualization (Matplotlib, Plotly).</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data Structures & Algorithms</h3>
+        <p>Strng understanding of fundamental data structures & their application to design efficient systems.</p>
+      </div>
+      <div class="skill-card">
+        <h3>DevOps & Tooling</h3>
+        <p>Git, Linux, SSH, Jupyter, SLURM, GPU clustering, CI‑friendly Python packaging.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Web & UI</h3>
+        <p>HTML/CSS/JS, responsive design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Campus Geoguessr</h3>
+        <p>Fine‑tuning pre‑trained image models on region, lat‑long & angle prediction tasks using a custom IIIT‑H campus dataset.</p>
+        <a href="https://github.com/possibly-nrs-14/campus_geoguessr" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>Naive Bayes Classifier</h3>
+        <p>Naïve Bayes from scratch with polarity‑lexicon features for improved sentiment classification.</p>
+        <a href="https://github.com/possibly-nrs-14/modified_naive_bayes_classifier" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>Transformers</h3>
+        <p>Clean implementation of the Transformer architecture ("Attention is All You Need") built entirely with PyTorch.</p>
+        <a href="https://github.com/possibly-nrs-14/transformer_from_scratch" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>ELMo</h3>
+        <p>End‑to‑end reproduction of the ELMo language‑model, with embeddings transferred to AG News 4‑way text classification.</p>
+        <a href="https://github.com/possibly-nrs-14/elmo_from_scratch" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>Custom Shell</h3>
+        <p>A UNIX‑like shell written in C, supporting job control, built‑ins, and path revelation commands.</p>
+        <a href="https://github.com/possibly-nrs-14/custom_shell" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>Tic‑Tac‑Toe</h3>
+        <p>Multiplayer Tic‑Tac‑Toe over TCP/UDP sockets demonstrating network programming fundamentals in C.</p>
+        <a href="https://github.com/possibly-nrs-14/tic-tac-toe" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h3>Enhancing flip-flop neurons using HRNNs</h3>
+        <p>An extension of a 2023 paper which introduced the 'flip-flop' neuron model, as well as it's use in a 2024 paper
+            for modelling the basal ganglia.
+        </p>
+        <a href="https://github.com/possibly-nrs-14/flip_flop_and_bg_modifications" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Nikhil Raj Sriram — All Rights Reserved
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('navMenu');
+    burger.addEventListener('click', () => navMenu.classList.toggle('open'));
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
