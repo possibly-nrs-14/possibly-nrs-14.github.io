@@ -25,7 +25,7 @@
       overflow-x: hidden;
       position: relative;
     }
-    /* Animated background */
+
     body::before {
       content: "";
       position: fixed;
@@ -41,7 +41,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Navigation */
+   
     header {
       width: 100%;
       position: sticky;
@@ -83,7 +83,7 @@
       transition: width .3s ease;
     }
     .nav-links a:hover::after { width: 100%; }
-    /* Hero */
+ 
     .hero {
       max-width: 1080px;
       margin: 4rem auto 2rem;
@@ -108,7 +108,7 @@
     .hero-text h1 { font-size: 2.2rem; line-height: 1.2; }
     .hero-text h1 span { color: var(--accent); }
     .tagline { font-size: 1.1rem; opacity: .85; margin-top: .5rem; }
-    /* Sections */
+
     section { padding: 4rem 1rem; max-width: 1080px; margin: 0 auto; }
     section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: .75rem; }
     #about p { max-width: 800px; opacity: .9; line-height: 1.7; }
@@ -132,7 +132,7 @@
     }
     .skill-card h3 { margin-bottom: .35rem; font-size: 1.25rem; }
     .skill-card p { font-size: .9rem; opacity: .9; }
-    /* Projects */
+
     #projects .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
@@ -165,7 +165,7 @@
       font-size: .9rem;
       opacity: .8;
     }
-    /* Mobile nav toggle */
+
     .burger { display: none; cursor: pointer; }
     .burger div {
       width: 25px; height: 3px; margin: 5px; background: var(--primary); transition: all .3s ease; }
@@ -191,7 +191,7 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+
   <section class="hero">
     <img src="nikhil.65cd97367a23960e5ff2.png" alt="Profile Photo" class="profile-photo" />
     <div class="hero-text">
@@ -199,7 +199,6 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
     <p>I'm a 4th Year student pursuing a dual degree in Computer Science and Computational Linguistics at IIIT-Hyderabad. Additionally,
@@ -211,12 +210,16 @@
     <h2>Skills & Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Machine Learning & Deep Learning</h3>
-        <p>PyTorch, transfer learning, Transformers, contrastive & ensemble methods.</p>
+        <h3>Machine Learning</h3>
+        <p>Sklearn, regression, clustering, classification and ensemble methods.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Deep Learning</h3>
+        <p>PyTorch, transfer learning, Transformers, CNNs, image recognition and understanding.</p>
       </div>
       <div class="skill-card">
         <h3>Natural Language Processing</h3>
-        <p>Language modelling, sentiment & topic classification, embedding analysis, Applying NLP concepts to other fields (such as music)</p>
+        <p>Language modelling, sentiment & topic classification, embedding analysis, LLMs, fine-tuning LLMs for specific tasks, prompt engineering</p>
       </div>
       <div class="skill-card">
         <h3>C & Systems Programming</h3>
@@ -241,7 +244,7 @@
     </div>
   </section>
 
-  <!-- Projects -->
+
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
@@ -315,11 +318,11 @@
   </footer>
 
   <script>
-    // Mobile nav toggle
+
     const burger = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
     burger.addEventListener('click', () => navMenu.classList.toggle('open'));
-    // Dynamic year
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
